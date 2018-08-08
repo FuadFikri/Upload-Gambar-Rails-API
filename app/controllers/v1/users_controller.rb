@@ -1,5 +1,5 @@
 class V1::UsersController < ApplicationController
-	before_action :authenticate_user, except: [:create]
+	before_action :authenticate_user, only: [:create, :update]
 	before_action :set_user, only: [:show, :update, :delete]
 	def create
 		user = User.new(user_params)
