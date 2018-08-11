@@ -1,5 +1,6 @@
 class V1::UsersController < ApplicationController
-	before_action :authenticate_user, only: [:create, :update]
+	# include Cloudinary::CarrierWave
+	# before_action :authenticate_user, only: [:create, :update]
 	before_action :set_user, only: [:show, :update, :delete]
 	def create
 		user = User.new(user_params)
@@ -24,8 +25,9 @@ class V1::UsersController < ApplicationController
 
 	def update
 	    # user = User.find(params[:id])
-	    @user.update(update_params)
-	    render json: { status: "OK", message: "user updated", user: @user }, status: 200
+	    @user.update(user_ava)
+		# render json: { status: "OK", message: "user updated", user: @user }, status: 200
+		render json: { status: "OK", msg: ' The image is sucessfully uploaded!!', user: @user}, status: 200
   	end
 
 	def delete
@@ -47,6 +49,10 @@ class V1::UsersController < ApplicationController
 	def set_user
 		@user = User.find(params[:id])
 	end	
+
+	def user_ava
+		params.permit(:avatar)
+	end
 
 
 end

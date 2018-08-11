@@ -1,0 +1,9 @@
+development:
+  cloud_name: "daurbarye"
+  api_key: "133843626423989"
+  api_secret: "EGVDaf_YUt5UPIvm5WgUAJN3in0"
+
+production:
+  cloud_name: "daurbarye"
+  api_key: "133843626423989"
+  api_secret: "EGVDaf_YUt5UPIvm5WgUAJN3in0"

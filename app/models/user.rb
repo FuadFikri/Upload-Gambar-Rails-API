@@ -1,6 +1,9 @@
 class User < ApplicationRecord
+	
 	validates :name, presence: true, length: { minimum: 3 }
 	validates :email, presence: true, uniqueness: true
+	mount_uploader :picture, PictureUploader
+	
 	
 	has_secure_password
 	validates :password, length: { minimum: 6, maximum: 20 }, allow_nil: true
@@ -11,7 +14,8 @@ class User < ApplicationRecord
 			id: id,
 			name: name,
 			email: email,
-			phone_number: phone_number
+			phone_number: phone_number,
+			avatar:avatar
 		}	
 		end	
 	end	
